@@ -13,7 +13,17 @@ SELECT  IdCliente,
             WHEN QtdePontos <= 5000 THEN 'Mago Aprendiz'
             WHEN QtdePontos <= 10000 THEN 'Mago Mestre'
             ELSE 'Mago Supremo'
-        END AS NomeGrupo
+        END AS NomeGrupo,
+
+        CASE
+            WHEN QtdePontos <= 1000 Then 1
+            ELSE 0
+        END AS FlPonei,
+
+        CASE
+            WHEN QtdePontos > 1000 Then 1
+            ELSE 0
+        END AS FlMago
 
 FROM clientes
 
